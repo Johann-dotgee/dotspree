@@ -11,7 +11,7 @@
 /db/*.sqlite3
 
 # Ignore the database config
-/db/database.yml
+/config/database.yml
 
 # Ignore the spree_atos_sips gem
 /spree_atos_sips
