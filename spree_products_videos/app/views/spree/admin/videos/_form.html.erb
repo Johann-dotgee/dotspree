@@ -1,0 +1,18 @@
+<div data-hook="admin_image_form_fields">
+  <tr data-hook="file">
+    <td><%= t(:vignette) %>:</td>
+    <td><%= f.file_field :vignette %></td>
+  </tr>
+  <tr data-hook="variant">
+    <td><%= Spree::Variant.model_name.human %>:</td>
+    <td><%= f.select :viewable_id, @variants %></td>
+  </tr>
+  <tr data-hook="hebergeur">
+    <td><%= t(:hebergeur) %>:</td>
+    <td><%= f.select :hebergeur, ["Youtube", "Dailymotion", "Local"] %></td>
+  </tr>
+  <tr data-hook="url">
+    <td><%= t(:url) %>:</td>
+    <td><%= f.text_field :url %></td>
+  </tr>
+</div>

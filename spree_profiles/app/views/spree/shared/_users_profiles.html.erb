@@ -1,0 +1,7 @@
+<dl id="user-info">
+<dt></dt><dd><%= link_to "edit", edit_account_path, :style => "margin-left:400px;" %></dd>
+  <% ["first_name", "last_name", "email", "phone", "address", "zip", "city", "state", "country"].each do |info| %>
+    <dt><%= t(:"#{info}") %></dt>
+    <dd><%= current_user.send(info) %>
+  <% end %>
+</dl>

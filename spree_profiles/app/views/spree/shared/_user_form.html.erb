@@ -1,0 +1,7 @@
+<% ["first_name", "last_name", "email", "phone", "address", "zip", "city", "state", "country"].each do |info| %>
+  <p>
+    <label for="<%= info %>"><%= t(:"#{info}") %></label>
+    <br>
+    <input class="title" id="user_<%= info %>" name="user[<%= info %>]" type="text" value="<%= current_user.send(info) %>" />
+  </p>
+<% end %>
