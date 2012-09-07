@@ -45,6 +45,7 @@ gem 'spree_auth_devise', :git => 'git://github.com/spree/spree_auth_devise'
 # gem 'spree_atos_sips', :git => 'https://github.com/dotgee/spree_atos_sips.git'
 # gem 'spree_atos_sips', :path => '../spree_atos_sips'
 gem 'spree_profiles', :path => 'spree_profiles'
+# gem 'spree_design_test', :path => 'spree_design_test'
 gem "spree_product_zoom", :git => "git://github.com/spree/spree_product_zoom.git"
 gem 'spree_products_videos', :path => 'spree_products_videos'
 

@@ -1,0 +1,16 @@
+<script type="text/javascript">
+$(document).ready(function(){
+    if(window === window.top){
+        $("#social_nav").hide();
+	if($("#existing-customer").html() != null){
+        	if($("#existing-customer").prev().attr("data-hook") == "account_my_orders"){
+			$("#existing-customer").hide();		
+		}else{
+			var login = $("#existing-customer");
+       			$("#content").html(login);
+		}
+	}
+	$(".facebook-like").hide();
+    }
+});
+</script>
