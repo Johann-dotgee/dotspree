@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/Johann-dotgee/spree_social_products.git
+  revision: 890cbbbaa8b6935b3b1e4854329e09bef1fd1aef
+  specs:
+    spree_social_products (1.0)
+      spree_core (~> 1.1)
+
+GIT
   remote: git://github.com/spree/spree_auth_devise
   revision: 4846fb89c72fd7f50a9ff79ab7b6f16a204a80b5
   specs:
@@ -307,6 +314,7 @@ DEPENDENCIES
   spree_products_videos!
   spree_profiles!
   spree_skrill
+  spree_social_products!
   spree_usa_epay
   therubyracer
   uglifier (>= 1.0.3)

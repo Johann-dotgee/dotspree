@@ -41,7 +41,7 @@ gem 'spree_usa_epay'
 gem 'spree_skrill'
 gem 'spree_auth_devise', :git => 'git://github.com/spree/spree_auth_devise'
 # gem 'spree_social', :git => "https://github.com/Johann-dotgee/spree_social.git"
-# gem 'spree_social_products', :git => "git://github.com/Johann-dotgee/spree_social_products.git"
+gem 'spree_social_products', :git => "git://github.com/Johann-dotgee/spree_social_products.git"
 # gem 'spree_atos_sips', :git => 'https://github.com/dotgee/spree_atos_sips.git'
 # gem 'spree_atos_sips', :path => '../spree_atos_sips'
 gem 'spree_profiles', :path => 'spree_profiles'
