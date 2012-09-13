@@ -3,6 +3,7 @@
     if(window !== window.top){
       $("ul#products li a").each(function(){
         $(this).attr("href", $(this).data("real"));
+        $(this).attr("target", "_top");
       });
     }
   });
