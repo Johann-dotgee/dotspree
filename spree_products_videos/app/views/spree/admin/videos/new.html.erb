@@ -9,4 +9,15 @@
   </p>
 <% end %>
 
-<%= javascript_include_tag 'admin/videos/new.js' %>
+
+<script type="text/javascript">    
+  jQuery('#cancel_link').click(function (event) { 
+    event.preventDefault();
+    jQuery('#new_video_link').show();
+    jQuery('#videos').html('');
+  });  
+ 
+</script>
+
+ 
+ 

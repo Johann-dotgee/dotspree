@@ -11,4 +11,4 @@
 //= require store/spree_promo
 
 //= require_tree .
-//= require store/spree_product_zoom
+// require store/spree_product_zoom

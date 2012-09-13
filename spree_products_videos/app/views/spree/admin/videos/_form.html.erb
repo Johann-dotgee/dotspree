@@ -1,3 +1,19 @@
+<!-- <tr>
+  <td><%= t("filename") %>:</td>
+  <td><%= f.file_field :attachment %></td>
+</tr>
+<% if @product.has_variants? %>
+  <tr>
+    <td><%= Variant.human_name %>:</td>
+    <td><%= f.select :viewable_id, @variants %></td>
+  </tr>
+<% else %>
+  <%= hidden_field_tag :product_id, @product.id %>
+<% end %>
+<tr>
+  <td><%= t("alt_text") %>:</td>
+  <td><%= f.text_area :alt %></td>
+</tr> -->
 <div data-hook="admin_image_form_fields">
   <tr data-hook="file">
     <td><%= t(:vignette) %>:</td>

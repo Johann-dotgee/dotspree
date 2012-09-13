@@ -1,41 +1,70 @@
 <%= render :partial => 'spree/admin/shared/product_sub_menu' %>
 
-<%= render :partial => 'spree/admin/shared/product_tabs', :locals => {:current => 'Videos'} %>
-<table class="index sortable" data-hook="videos_table" >
-  <tr data-hook="images_header">
-    <th><%= t(:vignette) %></th>
+<%= render :partial => 'spree/admin/shared/product_tabs', :locals => {:current => "Videos"} %>
+
+<table class="index">
+  <tr>
+    <th><%= t("filename") %></th>
     <% if @product.has_variants? %>
-      <th><%= Spree::Variant.model_name.human %></th>
+      <th><%= Variant.human_name %></th>
     <% end %>
-    <th><%= t(:hebergeur) %></th>
-    <th><%= t(:url) %></th>
+    <th><%= t("alt_text") %></th>
+    <th><%= t("action") %></th>
   </tr>
 
-  <tbody>
   <% @product.videos.each do |video| %>
-    <tr id="<%= spree_dom_id video %>" data-hook="videos_row">
-      <td>
-        <span class="handle"></span>
-        Vignette de la vidéo
-      </td>
-      <% if @product.has_variants? %>
-        <td><%= t(:all) %></td>
+    <tr id="<%= dom_id(video) %>">
+      <% unless video.image? %>
+        <td><%= link_to video.attachment_file_name, edit_admin_product_video_url(@product, video) %></td>
+      <% else %>
+        <td><%= image_tag(video.attachment.url(:mini)) %></td>
       <% end %>
-      <td><%= video.hebergeur %></td>
-      <td><%= video.url %></td>
+      <% if @product.has_variants? %>
+        <td><%= t('all') %></td>
+      <% end %>
+      <td><%= video.alt %></td>
       <td class="actions">
-        <%= link_to_with_icon 'edit', t(:edit), edit_admin_product_video_url(@product, video), :class => 'edit' %>
+        <%= link_to_with_icon('edit', t("edit"), edit_admin_product_video_url(@product, video)) %>
         &nbsp;
-        <%= link_to_delete video, { :url => admin_product_video_url(@product, video) }%>
+        <%= link_to_delete video, {:url => admin_product_video_url(@product, video) }%>
       </td>
     </tr>
   <% end %>
 
-  </tbody>
+  <% @product.variants.each do |variant| %>
+    <% variant.videos.each do |video| %>
+      <tr id="<%= dom_id(video) %>">
+        <td><%= link_to video.attachment_file_name, video.attachment.url(:product) %></td>
+        <% if @product.has_variants? %>
+          <td><%= variant.options_text %></td>
+        <% end %>
+        <td><%= video.alt %></td>
+        <td class="actions">
+          <%= link_to_with_icon('edit', t("edit"), edit_admin_product_video_url(@product, video)) %>
+          &nbsp;
+          <%= link_to_delete video, {:url => admin_product_video_url(@product, video) }%>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
 </table>
 
-<div id="videos" data-hook></div>
-<br />
-<p data-hook="links">
-  <%= link_to icon('add') + ' ' + t(:new_video), new_admin_product_video_url(@product), :id => 'new_video_link' %>
+<div id="videos"></div>
+<br/>
+<p>
+    <%= link_to icon('add') + ' ' + t("new_video"), new_admin_product_video_url(@product), :id => "new_video_link" %>
 </p>
+
+<% content_for :head do %>
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+      $('#new_video_link').click(function (event) {
+        event.preventDefault();
+        $(this).hide();
+        $.ajax({type: 'GET', url: this.href, data: ({authenticity_token: AUTH_TOKEN}), success: function(r){ $('#videos').html(r);} });
+      });
+
+    });
+  </script>
+<% end %>

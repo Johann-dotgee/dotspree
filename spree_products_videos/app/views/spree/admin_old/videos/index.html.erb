@@ -1,0 +1,41 @@
+<%= render :partial => 'spree/admin/shared/product_sub_menu' %>
+
+<%= render :partial => 'spree/admin/shared/product_tabs', :locals => {:current => 'Videos'} %>
+<table class="index sortable" data-hook="videos_table" >
+  <tr data-hook="images_header">
+    <th><%= t(:vignette) %></th>
+    <% if @product.has_variants? %>
+      <th><%= Spree::Variant.model_name.human %></th>
+    <% end %>
+    <th><%= t(:hebergeur) %></th>
+    <th><%= t(:url) %></th>
+  </tr>
+
+  <tbody>
+  <% @product.videos.each do |video| %>
+    <tr id="<%= spree_dom_id video %>" data-hook="videos_row">
+      <td>
+        <span class="handle"></span>
+        Vignette de la vidéo
+      </td>
+      <% if @product.has_variants? %>
+        <td><%= t(:all) %></td>
+      <% end %>
+      <td><%= video.hebergeur %></td>
+      <td><%= video.url %></td>
+      <td class="actions">
+        <%= link_to_with_icon 'edit', t(:edit), edit_admin_product_video_url(@product, video), :class => 'edit' %>
+        &nbsp;
+        <%= link_to_delete video, { :url => admin_product_video_url(@product, video) }%>
+      </td>
+    </tr>
+  <% end %>
+
+  </tbody>
+</table>
+
+<div id="videos" data-hook></div>
+<br />
+<p data-hook="links">
+  <%= link_to icon('add') + ' ' + t(:new_video), new_admin_product_video_url(@product), :id => 'new_video_link' %>
+</p>

@@ -35,19 +35,28 @@ group :production do
 end
 
 
-# Spree
+# Spree 
 gem 'spree', '1.2.0'
+gem 'spree_auth_devise', :git => 'git://github.com/spree/spree_auth_devise'
+gem 'spree_profiles', :path => 'spree_profiles'
+
+# Spree Payment
 gem 'spree_usa_epay'
 gem 'spree_skrill'
-gem 'spree_auth_devise', :git => 'git://github.com/spree/spree_auth_devise'
-# gem 'spree_social', :git => "https://github.com/Johann-dotgee/spree_social.git"
-gem 'spree_social_products', :git => "git://github.com/Johann-dotgee/spree_social_products.git"
 # gem 'spree_atos_sips', :git => 'https://github.com/dotgee/spree_atos_sips.git'
 # gem 'spree_atos_sips', :path => '../spree_atos_sips'
-gem 'spree_profiles', :path => 'spree_profiles'
-# gem 'spree_design_test', :path => 'spree_design_test'
-gem "spree_product_zoom", :git => "git://github.com/spree/spree_product_zoom.git"
-gem 'spree_products_videos', :path => 'spree_products_videos'
 
-# Facebook
+# Spree products
+gem 'spree_social_products', :git => "git://github.com/Johann-dotgee/spree_social_products.git"
+gem "spree_product_zoom", :git => "git://github.com/spree/spree_product_zoom.git"
+# gem "spree_zoom_products", :path => "spree_zoom_products"
+# gem 'spree_products_videos', :path => 'spree_products_videos'
+# gem 'spree_product_video', :path => 'spree_product_video' 
+
+# Spree Facebook
 gem 'fb_graph'
+gem "spree_facebook", :path => "spree_facebook"
+# gem 'spree_social', :git => "https://github.com/Johann-dotgee/spree_social.git"
+
+# Spree Design
+# gem 'spree_design_test', :path => 'spree_design_test'
