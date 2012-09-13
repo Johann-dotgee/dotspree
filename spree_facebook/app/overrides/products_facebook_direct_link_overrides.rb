@@ -2,7 +2,7 @@ Deface::Override.new(
   :virtual_path       => "spree/shared/_products",
   :name               => "products_direct_link",
   :replace            => "code[erb-loud]:contains('link_to small_image')",
-  :text               => '<%= link_to small_image(product, :itemprop => "image"), product, :itemprop => "url", "data-real" => "#{Spree::Config.site_url}/products/#{product.permalink}" %>',
+  :text               => '<%= link_to small_image(product, :itemprop => "image"), product, :itemprop => "url", "data-real" => "http://#{Spree::Config.site_url}products/#{product.permalink}" %>',
   :disabled           => false
 )
 
