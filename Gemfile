@@ -38,7 +38,7 @@ end
 # Spree 
 gem 'spree', '1.2.0'
 gem 'spree_auth_devise', :git => 'git://github.com/spree/spree_auth_devise'
-gem 'spree_profiles', :path => 'spree_profiles'
+gem 'spree_profiles', :git => 'git://github.com/Johann-dotgee/spree_profiles.git'
 
 # Spree Payment
 gem 'spree_usa_epay'
@@ -50,8 +50,7 @@ gem 'spree_skrill'
 gem 'spree_social_products', :git => "git://github.com/Johann-dotgee/spree_social_products.git"
 gem "spree_product_zoom", :git => "git://github.com/spree/spree_product_zoom.git"
 # gem "spree_zoom_products", :path => "spree_zoom_products"
-# gem 'spree_products_videos', :path => 'spree_products_videos'
-# gem 'spree_product_video', :path => 'spree_product_video' 
+gem 'spree_videos', :git => 'git://github.com/Johann-dotgee/spree_videos.git'
 
 # Spree Facebook
 gem 'fb_graph'

@@ -1,0 +1,9 @@
+#product-videos{
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+#product-videos iframe{
+  width: 340px !important;
+  height: 200px !important;
+}
