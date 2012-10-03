@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/Johann-dotgee/spree_profiles.git
+  revision: 1493c20a258ac7982e2a59add166946b62fb4cb8
+  specs:
+    spree_profiles (1.1.1)
+      spree_core (>= 1.1.1)
+
+GIT
   remote: git://github.com/Johann-dotgee/spree_social_products.git
   revision: 890cbbbaa8b6935b3b1e4854329e09bef1fd1aef
   specs:
@@ -28,17 +35,24 @@ PATH
       spree_core (~> 1.2.0)
 
 PATH
-  remote: spree_profiles
+  remote: spree_fnordmetric
   specs:
-    spree_profiles (1.1.1)
-      spree_core (>= 1.1.1)
+    spree_fnordmetric (1.2.0)
+      spree_core (~> 1.2.0)
 
 PATH
   remote: spree_videos
   specs:
     spree_videos (1.2.4)
       spree_core (~> 1.2.0)
+      video_info (>= 0.4.0)
       youtube_it (~> 2.1.5)
+
+PATH
+  remote: video_info
+  specs:
+    video_info (0.4.0)
+      hpricot (~> 0.8.4)
 
 GEM
   remote: https://rubygems.org/
@@ -94,9 +108,12 @@ GEM
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
     bcrypt-ruby (3.0.1)
+    bson (1.7.0)
+    bson_ext (1.7.0)
+      bson (~> 1.7.0)
     builder (3.0.3)
     cancan (1.6.7)
-    cocaine (0.3.0)
+    cocaine (0.3.1)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -104,6 +121,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.3.3)
+    daemons (1.1.9)
     deface (0.9.1)
       nokogiri (~> 1.5.0)
       rails (~> 3.1)
@@ -112,6 +130,8 @@ GEM
       orm_adapter (~> 0.0.3)
       railties (~> 3.1)
       warden (~> 1.1.1)
+    em-hiredis (0.1.1)
+      hiredis (~> 0.4.0)
     em-websocket (0.3.8)
       addressable (>= 2.1.1)
       eventmachine (>= 0.12.9)
@@ -127,6 +147,21 @@ GEM
       rack-oauth2 (>= 0.14.4)
       tzinfo
     ffaker (1.12.1)
+    fnordmetric (1.0.0)
+      activesupport
+      bson_ext (>= 1.4.0)
+      em-hiredis (= 0.1.1)
+      eventmachine
+      haml
+      i18n
+      json
+      rack
+      rack-test
+      redis (>= 2.2.2)
+      sinatra (>= 1.2.6)
+      thin (~> 1.3.0)
+      websocket-rack (= 0.4.0)
+      yajl-ruby
     guard (1.3.3)
       listen (>= 0.4.2)
       thor (>= 0.14.6)
@@ -136,8 +171,11 @@ GEM
       multi_json (~> 1.0)
     gyoku (0.4.6)
       builder (>= 2.1.2)
+    haml (3.1.7)
     highline (1.6.11)
     hike (1.2.1)
+    hiredis (0.4.5)
+    hpricot (0.8.6)
     httparty (0.8.3)
       multi_json (~> 1.0)
       multi_xml
@@ -158,7 +196,7 @@ GEM
       activesupport (>= 3.0.0)
     kgio (2.7.4)
     libv8 (3.3.10.4)
-    listen (0.5.1)
+    listen (0.5.2)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -205,6 +243,8 @@ GEM
       i18n
       multi_json (>= 1.3.6)
       rack (>= 1.1)
+    rack-protection (1.2.0)
+      rack
     rack-ssl (1.3.2)
       rack
     rack-test (0.6.1)
@@ -232,6 +272,7 @@ GEM
       polyamorous (~> 0.5.0)
     rdoc (3.12)
       json (~> 1.4)
+    redis (3.0.1)
     sass (3.2.1)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -248,6 +289,10 @@ GEM
     select2-rails (0.0.9)
       thor (~> 0.14)
     simple_oauth (0.1.9)
+    sinatra (1.3.3)
+      rack (~> 1.3, >= 1.3.6)
+      rack-protection (~> 1.2)
+      tilt (~> 1.3, >= 1.3.3)
     spree (1.2.0)
       spree_api (= 1.2.0)
       spree_cmd (= 1.2.0)
@@ -298,6 +343,10 @@ GEM
     stringex (1.3.3)
     therubyracer (0.10.2)
       libv8 (~> 3.3.10)
+    thin (1.3.1)
+      daemons (>= 1.0.9)
+      eventmachine (>= 0.12.6)
+      rack (>= 1.0.0)
     thor (0.16.0)
     tilt (1.3.3)
     treetop (1.4.10)
@@ -317,6 +366,11 @@ GEM
     wasabi (2.5.1)
       httpi (~> 1.0)
       nokogiri (>= 1.4.0)
+    websocket-rack (0.4.0)
+      em-websocket (~> 0.3.6)
+      eventmachine (~> 1.0.0.beta.4)
+      rack
+      thin
     yajl-ruby (1.1.0)
     youtube_it (2.1.7)
       builder
@@ -332,6 +386,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   fb_graph
+  fnordmetric (>= 1.0.0)
   guard-livereload
   jquery-rails
   mysql2
@@ -340,6 +395,7 @@ DEPENDENCIES
   spree (= 1.2.0)
   spree_auth_devise!
   spree_facebook!
+  spree_fnordmetric!
   spree_product_zoom!
   spree_profiles!
   spree_skrill
@@ -349,4 +405,5 @@ DEPENDENCIES
   therubyracer
   uglifier (>= 1.0.3)
   unicorn
+  video_info!
   yajl-ruby

@@ -13,7 +13,7 @@ module SpreeProfiles
       end
 
       def add_migrations
-        run 'bundle exec rake railties:install:migrations FROM=spree_profiles'
+        run 'rake railties:install:migrations FROM=spree_videos'
       end
 
       def run_migrations

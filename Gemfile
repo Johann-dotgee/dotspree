@@ -34,6 +34,10 @@ group :production do
   gem 'unicorn'
 end
 
+# FnordMetric
+gem 'fnordmetric', '>= 1.0.0'
+gem 'spree_fnordmetric', :path => 'spree_fnordmetric'
+
 
 # Spree 
 gem 'spree', '1.2.0'
@@ -50,7 +54,8 @@ gem 'spree_skrill'
 gem 'spree_social_products', :git => "git://github.com/Johann-dotgee/spree_social_products.git"
 gem "spree_product_zoom", :git => "git://github.com/spree/spree_product_zoom.git"
 # gem "spree_zoom_products", :path => "spree_zoom_products"
-gem 'spree_videos', :git => 'git://github.com/Johann-dotgee/spree_videos.git'
+gem 'spree_videos', :path => "spree_videos"
+gem 'video_info', :path => "video_info"
 
 # Spree Facebook
 gem 'fb_graph'
